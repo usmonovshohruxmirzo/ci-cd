@@ -77,10 +77,10 @@ jobs:
           node-version: 18    # Specify Node.js version
 
       - run: npm install
-      - run: npm test
+      - run: npm run test
 ```
 
-✅ Add a simple `npm test` script in `package.json`.
+✅ Add a simple `npm run test` script in `package.json`.
 
 ---
 
@@ -100,14 +100,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:              # Define test matrix
       matrix:
-        node: [16, 18, 20] # Node.js versions
+        node: [18, 20] # Node.js versions
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
       - run: npm install
-      - run: npm test
+      - run: npm run test
 ```
 
 ✅ Runs tests on Node.js 16, 18, 20 simultaneously.
@@ -139,7 +139,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm install
-      - run: npm test
+      - run: npm run test
 
   build:
     runs-on: ubuntu-latest
@@ -180,7 +180,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm install
-      - run: npm test
+      - run: npm run test
 ```
 
 ✅ Dependencies won’t reinstall every time.
